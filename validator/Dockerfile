@@ -2,7 +2,7 @@
 FROM debian:buster-slim 
 
 # Get the binary from the image and configuration files
-COPY --from=ghcr.io/openethereum/sbc-prysm-validator:v2.0.4-sbc /app/cmd/* /usr/local/bin/validator/
+COPY --from=ghcr.io/gnosischain/gbc-prysm-validator:v2.0.4-gbc /app/cmd/* /usr/local/bin/validator/
 
 # Copy entrypoint script
 COPY entrypoint.sh /usr/local/bin
