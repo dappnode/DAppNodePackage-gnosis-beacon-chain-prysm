@@ -1,6 +1,6 @@
 FROM debian:buster-slim 
 
-COPY --from=ghcr.io/openethereum/sbc-prysm-beacon-chain:v2.0.4-sbc /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
+COPY --from=ghcr.io/gnosischain/gbc-prysm-beacon-chain:v2.0.4-gbc /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
 
 # Get the proper configuration files
 RUN apt-get update && apt-get install -y wget
