@@ -1,0 +1,1 @@
+# DAppNodePackage-Gnosis-Beacon-Chain
