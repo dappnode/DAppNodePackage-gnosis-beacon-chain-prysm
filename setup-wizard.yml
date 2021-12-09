@@ -1,0 +1,23 @@
+version: "2"
+fields:
+  - id: GRAFFITI
+    target:
+      type: environment
+      name: GRAFFITI
+      service: validator
+    title: Graffiti
+    maxLength: 32
+    description: >-
+      Add a string to your proposed blocks, which will be seen on the block explorer
+  - id: HTTP_WEB3PROVIDER
+    target:
+      type: environment
+      name: XDAI_RPC_URL
+      service: beacon-chain
+    title: XDAI RPC URL
+    required: true
+    description: >-
+      Your Beacon chain node must have access to a syncronized xdai mainnet node. 
+      If you have not already, make sure to install and sync an xdai node of your choice.
+      Then, input the URL of the node that you wish to use or a remote one:
+      For example: https://sokol.poa.network/

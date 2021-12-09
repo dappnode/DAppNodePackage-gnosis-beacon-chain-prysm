@@ -1,0 +1,20 @@
+[
+    {
+        "labels": {
+            "package": "gnosis-beacon-chain.dnp.dappnode.eth",
+            "service": "beacon-chain.gnosis-beacon-chain.dappnode"
+        },
+        "targets": [
+            "beacon-chain.gnosis-beacon-chain.dappnode:8080"
+        ]
+    },
+    {
+        "labels": {
+            "package": "gnosis-beacon-chain.dnp.dappnode.eth",
+            "service": "validator.gnosis-beacon-chain.dappnode"
+        },
+        "targets": [
+            "validator.gnosis-beacon-chain.dappnode:8081"
+        ]
+    }
+]

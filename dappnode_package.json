@@ -1,0 +1,30 @@
+{
+  "name": "gnosis-beacon-chain.dnp.dappnode.eth",
+  "version": "0.1.0",
+  "description": "The xDai chain is a stable payments EVM (Ethereum Virtual Machine) blockchain designed for fast and inexpensive transactions. The chain uses a unique dual-token model; xDai is a stable token used for transactions, payments, and fees, and STAKE is a governance token used to support the underlying POSDAO Proof-of-Stake consensus.",
+  "shortDescription":"Stake testnet Beacon chain + validator",
+  "type": "service",
+  "mainService": "validator",
+  "architectures": ["linux/amd64"],
+  "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
+  "contributors": [
+    "tropicar <tropicar@dappnode.io> (https://github.com/tropicar)"
+  ],
+  "categories": ["Developer tools"],
+  "links": {
+    "ui": "http://gnosis-beacon-chain.dappnode/",
+    "readme": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain"
+  },
+  "license": "GLP-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain.git"
+  },
+  "backup": [
+    {
+      "name": "eth2validators",
+      "path": "/root/.eth2validators",
+      "service": "validator"
+    }
+  ]
+}
