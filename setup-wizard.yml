@@ -20,4 +20,4 @@ fields:
       Your Beacon chain node must have access to a syncronized xdai mainnet node. 
       If you have not already, make sure to install and sync an xdai node of your choice.
       Then, input the URL of the node that you wish to use or a remote one:
-      For example: https://sokol.poa.network/
+      For example: https://rpc.xdaichain.com/

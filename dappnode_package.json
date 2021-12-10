@@ -1,24 +1,26 @@
 {
-  "name": "gnosis-beacon-chain.dnp.dappnode.eth",
+  "name": "gnosis-beacon-chain-prysm.dnp.dappnode.eth",
   "version": "0.1.0",
-  "description": "The xDai chain is a stable payments EVM (Ethereum Virtual Machine) blockchain designed for fast and inexpensive transactions. The chain uses a unique dual-token model; xDai is a stable token used for transactions, payments, and fees, and STAKE is a governance token used to support the underlying POSDAO Proof-of-Stake consensus.",
-  "shortDescription":"Stake testnet Beacon chain + validator",
+  "description": "Gnosis Beacon Chain (GBC) brings vital canary network functionality to the burgeoning Ethereum 2.0 ecosystem. Applications can iterate through real-world strategies, stage important applications, or choose to run DApps in a faster, lower-stakes environment while enjoying the benefits of massive scalability. This package includes a Prysm validator client to validate the PoS chain",
+  "shortDescription":"Gnosis Beacon Chain node + validator",
   "type": "service",
   "mainService": "validator",
-  "architectures": ["linux/amd64"],
+  "architectures": ["linux/amd64", "linux/arm64"],
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
   "contributors": [
     "tropicar <tropicar@dappnode.io> (https://github.com/tropicar)"
   ],
-  "categories": ["Developer tools"],
-  "links": {
-    "ui": "http://gnosis-beacon-chain.dappnode/",
-    "readme": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain"
-  },
+  "categories": ["Blockchain", "ETH2.0"],
   "license": "GLP-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain.git"
+    "url": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain-Prysm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain-Prysm/issues"
+  },
+  "requirements": {
+    "minimumDappnodeVersion": "0.2.39"
   },
   "backup": [
     {
@@ -26,5 +28,10 @@
       "path": "/root/.eth2validators",
       "service": "validator"
     }
-  ]
+  ],
+  "links": {
+    "ui": "http://gnosis-beacon-chain-prysm.dappnode/",
+    "readme": "https://github.com/dappnode/DAppNodePackage-prysm-prater",
+    "docs": "https://docs.gnosischain.com/"
+  }
 }
