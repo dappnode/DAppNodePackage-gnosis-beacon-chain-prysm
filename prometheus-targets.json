@@ -1,20 +1,20 @@
 [
     {
         "labels": {
-            "package": "gnosis-beacon-chain.dnp.dappnode.eth",
-            "service": "beacon-chain.gnosis-beacon-chain.dappnode"
+            "package": "gnosis-chain.dnp.dappnode.eth",
+            "service": "beacon-chain.gnosis-beacon-chain-prysm"
         },
         "targets": [
-            "beacon-chain.gnosis-beacon-chain.dappnode:8080"
+            "beacon-chain.gnosis-beacon-chain-prysm:8080"
         ]
     },
     {
         "labels": {
-            "package": "gnosis-beacon-chain.dnp.dappnode.eth",
-            "service": "validator.gnosis-beacon-chain.dappnode"
+            "package": "gnosis-chain.dnp.dappnode.eth",
+            "service": "validator.gnosis-beacon-chain-prysm"
         },
         "targets": [
-            "validator.gnosis-beacon-chain.dappnode:8081"
+            "validator.gnosis-beacon-chain-prysm:8081"
         ]
     }
 ]

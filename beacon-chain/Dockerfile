@@ -2,13 +2,12 @@ FROM debian:buster-slim
 
 COPY --from=ghcr.io/gnosischain/gbc-prysm-beacon-chain:v2.0.4-gbc /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
 
-# Get the proper configuration files
-RUN apt-get update && apt-get install -y wget
+RUN apt-get update && apt-get install -y ca-certificates
 
 COPY /config/bootnodes.yaml /root/sbc/config/
 COPY /config/config.yml /root/sbc/config/
 
-ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/beacon-chain \ 
+ENTRYPOINT [ "sh", "-c", "exec beacon-chain \ 
     --datadir=/data \
     --accept-terms-of-use \
     --contract-deployment-block=\"$DEPLOYMENT_BLOCK\" \
@@ -20,6 +19,5 @@ ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/beacon-chain \
     --p2p-local-ip=0.0.0.0 \
     --subscribe-all-subnets \
     --monitoring-host=0.0.0.0 \
-    --verbosity=debug \
     $EXTRA_OPTS" ]   
 

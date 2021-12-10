@@ -1,8 +1,7 @@
 # DAppNodePackage-Gnosis-Beacon-Chain
 
-This package let you to run a node and a validator of xDai Network.
+Gnosis Beacon Chain (GBC) brings vital canary network functionality to the burgeoning Ethereum 2.0 ecosystem. Applications can iterate through real-world strategies, stage important applications, or choose to run DApps in a faster, lower-stakes environment while enjoying the benefits of massive scalability. This package includes a Prysm validator client to validate the PoS chain
 
-The xDai chain is a stable payments EVM (Ethereum Virtual Machine) blockchain designed for fast and inexpensive transactions. The chain uses a unique dual-token model; xDai is a stable token used for transactions, payments, and fees, and STAKE is a governance token used to support the underlying POSDAO Proof-of-Stake consensus.
 
 |      Updated       | Champion/s |
 | :----------------: | :--------: |

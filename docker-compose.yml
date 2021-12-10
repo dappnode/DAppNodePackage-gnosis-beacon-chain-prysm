@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   beacon-chain:
-    image: "beacon-chain.gnosis-beacon-chain.dnp.dappnode.eth:0.1.0"
+    image: "beacon-chain.gnosis-beacon-chain-prysm.dnp.dappnode.eth:0.1.0"
     build:
       context: beacon-chain
     volumes:
@@ -11,19 +11,19 @@ services:
       - "13000"
     restart: unless-stopped
     environment:
-      XDAI_RPC_URL: "https://dai.poa.network"
+      XDAI_RPC_URL: "https://rpc.xdaichain.com/"
       DEPLOYMENT_BLOCK: 19469077
       EXTRA_OPTS: ""
   validator:
-    image: "validator.gnosis-beacon-chain.dnp.dappnode.eth:0.1.0"
+    image: "validator.gnosis-beacon-chain-prysm.dnp.dappnode.eth:0.1.0"
     build:
       context: validator
     volumes:
       - "validator-data:/root/"
     restart: unless-stopped
     environment:
-      BEACON_RPC_PROVIDER: "beacon-chain.gnosis-beacon-chain.dappnode:4000"
-      BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.gnosis-beacon-chain.dappnode:3500"
+      BEACON_RPC_PROVIDER: "beacon-chain.gnosis-beacon-chain-prysm:4000"
+      BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.gnosis-beacon-chain-prysm:3500"
       GRAFFITI: validating_from_DAppNode
       EXTRA_OPTS: ""
 volumes:
