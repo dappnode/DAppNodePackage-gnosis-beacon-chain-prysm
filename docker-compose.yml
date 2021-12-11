@@ -12,6 +12,7 @@ services:
     restart: unless-stopped
     environment:
       XDAI_RPC_URL: "https://rpc.xdaichain.com/"
+      CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
       EXTRA_OPTS: ""
   validator:
@@ -22,8 +23,8 @@ services:
       - "validator-data:/root/"
     restart: unless-stopped
     environment:
-      BEACON_RPC_PROVIDER: "beacon-chain.gnosis-beacon-chain-prysm:4000"
-      BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.gnosis-beacon-chain-prysm:3500"
+      BEACON_RPC_PROVIDER: "beacon-chain.gnosis-beacon-chain-prysm.dappnode:4000"
+      BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.gnosis-beacon-chain-prysm.dappnode:3500"
       GRAFFITI: validating_from_DAppNode
       EXTRA_OPTS: ""
 volumes:
