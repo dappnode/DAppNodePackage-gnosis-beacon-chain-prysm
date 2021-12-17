@@ -230,7 +230,7 @@
                 }
               ]
             },
-            "unit": "ETH"
+            "unit": "mGNO"
           },
           "overrides": []
         },
@@ -256,7 +256,7 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"})",
+            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"})",
             "instant": true,
             "interval": "",
             "legendFormat": "vbal",
@@ -265,13 +265,13 @@
         ],
         "timeFrom": null,
         "timeShift": null,
-        "title": "Total Validator Balance (ETH)",
+        "title": "Total Validator Balance (mGNO)",
         "type": "stat"
       },
       {
         "cacheTimeout": null,
         "datasource": null,
-        "description": "Total ETH return on the initial effective gnosis-chain of active local validators.",
+        "description": "Total mGNO return on the initial effective gnosis-chain of active local validators.",
         "fieldConfig": {
           "defaults": {
             "custom": {},
@@ -303,7 +303,7 @@
                 }
               ]
             },
-            "unit": "ETH"
+            "unit": "mGNO"
           },
           "overrides": []
         },
@@ -337,7 +337,7 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"})-(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16 and validator_statuses{service=\"validator.gnosis-beacon-chain-prysm\"} == 3)*32)",
+            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"})-(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16 and validator_statuses{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} == 3)*32)",
             "instant": true,
             "interval": "",
             "legendFormat": "",
@@ -346,7 +346,7 @@
         ],
         "timeFrom": null,
         "timeShift": null,
-        "title": "Total Earnings (ETH)",
+        "title": "Total Earnings (mGNO)",
         "type": "stat"
       },
       {
@@ -422,7 +422,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "(sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}) - (count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16 and validator_statuses{service=\"validator.gnosis-beacon-chain-prysm\"} == 3)*32))/(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16 and validator_statuses{service=\"validator.gnosis-beacon-chain-prysm\"} == 3)*32)  ",
+            "expr": "(sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}) - (count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16 and validator_statuses{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} == 3)*32))/(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16 and validator_statuses{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} == 3)*32)  ",
             "instant": true,
             "interval": "",
             "legendFormat": "",
@@ -500,7 +500,7 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "p2p_peer_count{state=\"Connected\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "p2p_peer_count{state=\"Connected\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "instant": true,
             "interval": "",
             "legendFormat": "",
@@ -515,7 +515,7 @@
       {
         "cacheTimeout": null,
         "datasource": null,
-        "description": "The percentage of ETH balances expected to attest that are actually attesting.",
+        "description": "The percentage of mGNO balances expected to attest that are actually attesting.",
         "fieldConfig": {
           "defaults": {
             "custom": {},
@@ -571,7 +571,7 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "(beacon_prev_epoch_target_gwei{service=\"beacon-chain.gnosis-beacon-chain-prysm\"} / beacon_prev_epoch_active_gwei{service=\"beacon-chain.gnosis-beacon-chain-prysm\"} )",
+            "expr": "(beacon_prev_epoch_target_gwei{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} / beacon_prev_epoch_active_gwei{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} )",
             "interval": "",
             "legendFormat": "",
             "refId": "A"
@@ -640,7 +640,7 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "clamp_min((1-(4*((floor(beacon_clock_time_slot{service=\"beacon-chain.gnosis-beacon-chain-prysm\"}/32) - beacon_finalized_epoch{service=\"beacon-chain.gnosis-beacon-chain-prysm\"} - 2)/100))),0)",
+            "expr": "clamp_min((1-(4*((floor(beacon_clock_time_slot{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}/32) - beacon_finalized_epoch{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} - 2)/100))),0)",
             "interval": "",
             "legendFormat": "",
             "refId": "A"
@@ -657,7 +657,7 @@
         "dashLength": 10,
         "dashes": false,
         "datasource": null,
-        "description": "The percentage of ETH balances expected to attest that are actually attesting.",
+        "description": "The percentage of mGNO balances expected to attest that are actually attesting.",
         "fieldConfig": {
           "defaults": {
             "custom": {}
@@ -699,7 +699,7 @@
         "steppedLine": true,
         "targets": [
           {
-            "expr": "(beacon_prev_epoch_target_gwei{service=\"beacon-chain.gnosis-beacon-chain-prysm\"} / beacon_prev_epoch_active_gwei{service=\"beacon-chain.gnosis-beacon-chain-prysm\"} )",
+            "expr": "(beacon_prev_epoch_target_gwei{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} / beacon_prev_epoch_active_gwei{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} )",
             "interval": "",
             "legendFormat": "participation rate",
             "refId": "A"
@@ -758,7 +758,7 @@
       },
       {
         "datasource": "Prometheus",
-        "description": "Sum of all validator balances multiplied by the price of ETH in USD.",
+        "description": "Sum of all validator balances multiplied by the price of mGNO in USD.",
         "fieldConfig": {
           "defaults": {
             "custom": {},
@@ -800,15 +800,15 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "ethusd ",
+            "expr": "gnousd ",
             "hide": false,
             "instant": true,
             "interval": "",
-            "legendFormat": "ethusd",
+            "legendFormat": "gnousd",
             "refId": "A"
           },
           {
-            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"})",
+            "expr": "(sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"})) / 32",
             "hide": false,
             "instant": true,
             "interval": "",
@@ -825,7 +825,7 @@
             "options": {
               "alias": "total_validator_value",
               "binary": {
-                "left": "ethusd",
+                "left": "gnousd",
                 "operator": "*",
                 "reducer": "sum",
                 "right": "balance"
@@ -902,17 +902,17 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"})-(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16 and validator_statuses{service=\"validator.gnosis-beacon-chain-prysm\"} == 3)*32)",
+            "expr": "(sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"})-(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16 and validator_statuses{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} == 3)*32)) / 32",
             "instant": true,
             "interval": "",
             "legendFormat": "total_balance",
             "refId": "A"
           },
           {
-            "expr": "ethusd",
+            "expr": "gnousd",
             "instant": true,
             "interval": "",
-            "legendFormat": "ethusd",
+            "legendFormat": "gnousd",
             "refId": "B"
           }
         ],
@@ -928,7 +928,7 @@
                 "left": "total_balance",
                 "operator": "*",
                 "reducer": "sum",
-                "right": "ethusd"
+                "right": "gnousd"
               },
               "mode": "binary",
               "reduce": {
@@ -943,7 +943,7 @@
       {
         "cacheTimeout": null,
         "datasource": null,
-        "description": "Price of ETH in USD.",
+        "description": "Price of GNO in USD.",
         "fieldConfig": {
           "defaults": {
             "custom": {},
@@ -1002,16 +1002,16 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "ethusd",
+            "expr": "gnousd",
             "instant": true,
             "interval": "",
-            "legendFormat": "ethusd",
+            "legendFormat": "gnousd",
             "refId": "B"
           }
         ],
         "timeFrom": null,
         "timeShift": null,
-        "title": "ETH Price (USD)",
+        "title": "GNO Price (USD)",
         "transformations": [
           {
             "id": "calculateField",
@@ -1021,7 +1021,7 @@
                 "left": "total_balance",
                 "operator": "*",
                 "reducer": "sum",
-                "right": "ethusd"
+                "right": "gnousd"
               },
               "mode": "binary",
               "reduce": {
@@ -1144,21 +1144,21 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "floor(beacon_clock_time_slot{service=\"beacon-chain.gnosis-beacon-chain-prysm\"} / 32)",
+            "expr": "floor(beacon_clock_time_slot{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} / 32)",
             "instant": true,
             "interval": "",
             "legendFormat": "current",
             "refId": "A"
           },
           {
-            "expr": "beacon_current_justified_epoch{service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "beacon_current_justified_epoch{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "instant": true,
             "interval": "",
             "legendFormat": "justified",
             "refId": "C"
           },
           {
-            "expr": "beacon_finalized_epoch {service=\"beacon-chain.gnosis-beacon-chain-prysm\"} ",
+            "expr": "beacon_finalized_epoch {service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} ",
             "format": "time_series",
             "instant": true,
             "interval": "",
@@ -1214,14 +1214,14 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "beacon_slot{service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "beacon_slot{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "instant": true,
             "interval": "",
             "legendFormat": "current slot",
             "refId": "A"
           },
           {
-            "expr": "beacon_head_slot{service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "beacon_head_slot{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "instant": true,
             "interval": "",
             "legendFormat": "head slot",
@@ -1442,7 +1442,7 @@
           },
           "overrides": []
         },
-        "format": "ETH",
+        "format": "mGNO",
         "gauge": {
           "maxValue": 100,
           "minValue": 0,
@@ -1496,7 +1496,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 1h != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)) + (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 1h > 16))",
+            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 1h != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)) + (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 1h > 16))",
             "instant": false,
             "interval": "",
             "intervalFactor": 3,
@@ -1538,7 +1538,7 @@
           },
           "overrides": []
         },
-        "format": "ETH",
+        "format": "mGNO",
         "gauge": {
           "maxValue": 100,
           "minValue": 0,
@@ -1592,7 +1592,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 1d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)) + (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 1d > 16))",
+            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 1d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)) + (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 1d > 16))",
             "instant": false,
             "interval": "",
             "legendFormat": "",
@@ -1633,7 +1633,7 @@
           },
           "overrides": []
         },
-        "format": "ETH",
+        "format": "mGNO",
         "gauge": {
           "maxValue": 100,
           "minValue": 0,
@@ -1687,7 +1687,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 7d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)) + (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 7d > 16))",
+            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 7d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)) + (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 7d > 16))",
             "instant": false,
             "interval": "",
             "legendFormat": "",
@@ -1728,7 +1728,7 @@
           },
           "overrides": []
         },
-        "format": "ETH",
+        "format": "mGNO",
         "gauge": {
           "maxValue": 100,
           "minValue": 0,
@@ -1782,7 +1782,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 30d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)) + (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 30d > 16))",
+            "expr": "sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 30d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)) + (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 30d > 16))",
             "instant": false,
             "interval": "",
             "legendFormat": "",
@@ -1850,21 +1850,21 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "validator_count{state=\"Active\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"} ",
+            "expr": "validator_count{state=\"Active\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} ",
             "instant": true,
             "interval": "",
             "legendFormat": "active",
             "refId": "C"
           },
           {
-            "expr": "validator_count{state=\"Slashed\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"} ",
+            "expr": "validator_count{state=\"Slashed\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} ",
             "instant": true,
             "interval": "",
             "legendFormat": "slashed",
             "refId": "B"
           },
           {
-            "expr": "validator_count{state=\"Exited\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"} ",
+            "expr": "validator_count{state=\"Exited\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} ",
             "instant": true,
             "interval": "",
             "legendFormat": "exited",
@@ -1943,25 +1943,25 @@
         "steppedLine": false,
         "targets": [
           {
-            "expr": "validator_count{state=\"Pending\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "validator_count{state=\"Pending\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "interval": "",
             "legendFormat": "pending",
             "refId": "B"
           },
           {
-            "expr": "validator_count{state=\"Exiting\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "validator_count{state=\"Exiting\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "interval": "",
             "legendFormat": "exiting",
             "refId": "A"
           },
           {
-            "expr": "validator_count{state=\"Slashing\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "validator_count{state=\"Slashing\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "interval": "",
             "legendFormat": "slashing",
             "refId": "C"
           },
           {
-            "expr": "validator_count{service=\"beacon-chain.gnosis-beacon-chain-prysm\", state=\"Active\"}",
+            "expr": "validator_count{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\", state=\"Active\"}",
             "interval": "",
             "legendFormat": "active validators",
             "refId": "D"
@@ -2052,14 +2052,14 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "validator_count{state=\"Pending\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "validator_count{state=\"Pending\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "instant": true,
             "interval": "",
             "legendFormat": "pending",
             "refId": "B"
           },
           {
-            "expr": "validator_count{state=\"Exiting\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "validator_count{state=\"Exiting\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "instant": true,
             "interval": "",
             "legendFormat": "exiting",
@@ -2144,7 +2144,7 @@
         "tableColumn": "annualized hourly return",
         "targets": [
           {
-            "expr": "((sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 1h != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)) +\t(32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 1h > 16)))/(32 * avg_over_time(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)[1h:]))) * 365 * 24",
+            "expr": "((sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 1h != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)) +\t(32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 1h > 16)))/(32 * avg_over_time(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)[1h:]))) * 365 * 24",
             "hide": false,
             "interval": "",
             "legendFormat": "annualized hourly return",
@@ -2239,7 +2239,7 @@
         "tableColumn": "annualized daily return",
         "targets": [
           {
-            "expr": "((sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 1d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)) +\t(32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 1d > 16)))/(32 * avg_over_time(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)[1d:]))) * 365",
+            "expr": "((sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 1d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)) +\t(32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 1d > 16)))/(32 * avg_over_time(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)[1d:]))) * 365",
             "hide": false,
             "interval": "",
             "legendFormat": "annualized daily return",
@@ -2334,7 +2334,7 @@
         "tableColumn": "annualized weekly return",
         "targets": [
           {
-            "expr": "((sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 7d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)) +\t(32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 7d > 16)))/(32 * avg_over_time(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)[7d:]))) * (365/7)",
+            "expr": "((sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 7d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)) +\t(32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 7d > 16)))/(32 * avg_over_time(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)[7d:]))) * (365/7)",
             "hide": false,
             "interval": "",
             "legendFormat": "annualized weekly return",
@@ -2429,7 +2429,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "((sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 30d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)) +\t(32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} offset 30d > 16)))/(32 * avg_over_time(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"} > 16)[30d:]))) * (365/30)",
+            "expr": "((sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}) - sum(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 30d != 0) - (32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)) +\t(32 * count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} offset 30d > 16)))/(32 * avg_over_time(count(validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"} > 16)[30d:]))) * (365/30)",
             "hide": false,
             "interval": "",
             "legendFormat": "annualized monthly return",
@@ -2502,7 +2502,7 @@
         "nullPointMode": "connected",
         "nullText": null,
         "pluginVersion": "6.7.3",
-        "postfix": "ETH",
+        "postfix": "mGNO",
         "postfixFontSize": "50%",
         "prefix": "",
         "prefixFontSize": "50%",
@@ -2524,7 +2524,7 @@
         "tableColumn": "eth",
         "targets": [
           {
-            "expr": "validators_total_balance{state=\"Active\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"} / validator_count{state=\"Active\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"} / 1000000000",
+            "expr": "validators_total_balance{state=\"Active\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} / validator_count{state=\"Active\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"} / 1000000000",
             "interval": "",
             "legendFormat": "eth",
             "refId": "A"
@@ -2589,14 +2589,14 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "((validator_count{state=\"Pending\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"}/4)*6.4)",
+            "expr": "((validator_count{state=\"Pending\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}/4)*6.4)",
             "instant": true,
             "interval": "",
             "legendFormat": "pending",
             "refId": "B"
           },
           {
-            "expr": "((validator_count{state=\"Exiting\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"}/4)*6.4)",
+            "expr": "((validator_count{state=\"Exiting\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}/4)*6.4)",
             "instant": true,
             "interval": "",
             "legendFormat": "exiting",
@@ -2835,8 +2835,8 @@
             "decimals": 2,
             "link": true,
             "linkTargetBlank": true,
-            "linkTooltip": "beaconcha.in",
-            "linkUrl": "http://gnosis-chain.beaconcha.in/validator/${__cell_1:raw}",
+            "linkTooltip": "gnosischain.com",
+            "linkUrl": "https://beacon.gnosischain.com/validator/${__cell_1:raw}",
             "mappingType": 1,
             "pattern": "pubkey_short",
             "thresholds": [],
@@ -2865,7 +2865,7 @@
         ],
         "targets": [
           {
-            "expr": "label_replace(max by(pubkey) (validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\") ",
+            "expr": "label_replace(max by(pubkey) (validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\") ",
             "format": "table",
             "instant": true,
             "interval": "",
@@ -2873,7 +2873,7 @@
             "refId": "F"
           },
           {
-            "expr": "label_replace(max by(pubkey) (validator_successful_proposals{service=\"validator.gnosis-beacon-chain-prysm\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\")  ",
+            "expr": "label_replace(max by(pubkey) (validator_successful_proposals{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\")  ",
             "format": "table",
             "instant": true,
             "interval": "",
@@ -2881,7 +2881,7 @@
             "refId": "E"
           },
           {
-            "expr": "label_replace(max by(pubkey) (validator_successful_attestations{service=\"validator.gnosis-beacon-chain-prysm\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\")  ",
+            "expr": "label_replace(max by(pubkey) (validator_successful_attestations{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\")  ",
             "format": "table",
             "instant": true,
             "interval": "",
@@ -2889,7 +2889,7 @@
             "refId": "A"
           },
           {
-            "expr": "label_replace(max by(pubkey) (validator_successful_aggregations{service=\"validator.gnosis-beacon-chain-prysm\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\") ",
+            "expr": "label_replace(max by(pubkey) (validator_successful_aggregations{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\") ",
             "format": "table",
             "instant": true,
             "interval": "",
@@ -2897,7 +2897,7 @@
             "refId": "C"
           },
           {
-            "expr": "label_replace(max by(pubkey) (validator_failed_attestations{service=\"validator.gnosis-beacon-chain-prysm\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\") ",
+            "expr": "label_replace(max by(pubkey) (validator_failed_attestations{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\") ",
             "format": "table",
             "instant": true,
             "interval": "",
@@ -2905,7 +2905,7 @@
             "refId": "B"
           },
           {
-            "expr": "label_replace(max by(pubkey) (validator_failed_aggregations{service=\"validator.gnosis-beacon-chain-prysm\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\") ",
+            "expr": "label_replace(max by(pubkey) (validator_failed_aggregations{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\") ",
             "format": "table",
             "instant": true,
             "interval": "",
@@ -2913,13 +2913,13 @@
             "refId": "D"
           },
           {
-            "expr": "label_replace(max by(pubkey) (validator_balance{service=\"validator.gnosis-beacon-chain-prysm\"}), \"pubkey\", \"$1\", \"pubkey_short\", \"(.{10}).*\") ",
+            "expr": "label_replace(max by(pubkey) (validator_balance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}), \"pubkey\", \"$1\", \"pubkey_short\", \"(.{10}).*\") ",
             "interval": "",
             "legendFormat": "",
             "refId": "G"
           },
           {
-            "expr": "label_replace(max by(pubkey) (validator_inclusion_distance{service=\"validator.gnosis-beacon-chain-prysm\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\")  ",
+            "expr": "label_replace(max by(pubkey) (validator_inclusion_distance{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\")  ",
             "format": "table",
             "instant": true,
             "interval": "",
@@ -3076,7 +3076,7 @@
         "steppedLine": false,
         "targets": [
           {
-            "expr": "p2p_peer_count{state=\"Connected\",service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "p2p_peer_count{state=\"Connected\",service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "interval": "",
             "legendFormat": "peers",
             "refId": "A"
@@ -3203,10 +3203,10 @@
           "ymax": null,
           "ymin": null
         },
-        "tableColumn": "{instance=\"127.0.0.1:8080\", service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+        "tableColumn": "",
         "targets": [
           {
-            "expr": "(time()-process_start_time_seconds{service=\"beacon-chain.gnosis-beacon-chain-prysm\"})/3600",
+            "expr": "(time()-process_start_time_seconds{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"})/3600",
             "instant": true,
             "interval": "",
             "legendFormat": "",
@@ -3286,14 +3286,14 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "sum(rate(log_entries_total{service=\"beacon-chain.gnosis-beacon-chain-prysm\", level=\"error\"}[$__range]))*3600",
+            "expr": "sum(rate(log_entries_total{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\", level=\"error\"}[$__range]))*3600",
             "instant": false,
             "interval": "",
             "legendFormat": "errors",
             "refId": "A"
           },
           {
-            "expr": "sum(rate(log_entries_total{service=\"beacon-chain.gnosis-beacon-chain-prysm\", level=\"warning\"}[$__range]))*3600",
+            "expr": "sum(rate(log_entries_total{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\", level=\"warning\"}[$__range]))*3600",
             "instant": false,
             "interval": "",
             "legendFormat": "warnings",
@@ -3376,10 +3376,10 @@
           "ymax": null,
           "ymin": null
         },
-        "tableColumn": "{instance=\"127.0.0.1:8081\", service=\"validator.gnosis-beacon-chain-prysm\"}",
+        "tableColumn": "",
         "targets": [
           {
-            "expr": "(time()-process_start_time_seconds{service=\"validator.gnosis-beacon-chain-prysm\"})/3600",
+            "expr": "(time()-process_start_time_seconds{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"})/3600",
             "instant": true,
             "interval": "",
             "legendFormat": "",
@@ -3460,14 +3460,14 @@
         "pluginVersion": "7.0.0",
         "targets": [
           {
-            "expr": "sum(rate(log_entries_total{service=\"validator.gnosis-beacon-chain-prysm\", level=\"error\"}[$__range]))*3600",
+            "expr": "sum(rate(log_entries_total{service=\"validator.gnosis-beacon-chain-prysm.dappnode\", level=\"error\"}[$__range]))*3600",
             "instant": false,
             "interval": "",
             "legendFormat": "errors",
             "refId": "B"
           },
           {
-            "expr": "sum(rate(log_entries_total{service=\"validator.gnosis-beacon-chain-prysm\", level=\"warning\"}[$__range]))*3600",
+            "expr": "sum(rate(log_entries_total{service=\"validator.gnosis-beacon-chain-prysm.dappnode\", level=\"warning\"}[$__range]))*3600",
             "interval": "",
             "legendFormat": "warnings",
             "refId": "A"
@@ -3639,13 +3639,13 @@
         "steppedLine": false,
         "targets": [
           {
-            "expr": "process_resident_memory_bytes{service=\"beacon-chain.gnosis-beacon-chain-prysm\"}",
+            "expr": "process_resident_memory_bytes{service=\"beacon-chain.gnosis-beacon-chain-prysm.dappnode\"}",
             "interval": "",
             "legendFormat": "beacon memory",
             "refId": "F"
           },
           {
-            "expr": "process_resident_memory_bytes{service=\"validator.gnosis-beacon-chain-prysm\"}",
+            "expr": "process_resident_memory_bytes{service=\"validator.gnosis-beacon-chain-prysm.dappnode\"}",
             "interval": "",
             "legendFormat": "validator memory",
             "refId": "G"
