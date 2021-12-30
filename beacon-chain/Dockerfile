@@ -23,5 +23,4 @@ ENTRYPOINT [ "sh", "-c", "exec beacon-chain \
     --bootstrap-node /root/sbc/config/bootnodes.yaml \
     --config-file /root/sbc/config/config.yml \
     --chain-config-file /root/sbc/config/config.yml \
-    --subscribe-all-subnets \
     $EXTRA_OPTS" ]
