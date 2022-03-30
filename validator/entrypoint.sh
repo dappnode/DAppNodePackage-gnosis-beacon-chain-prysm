@@ -54,4 +54,5 @@ exec -c validator \
     --grpc-gateway-host=0.0.0.0 \
     --grpc-gateway-port=80 \
     --accept-terms-of-use \
+    --graffiti-file=/graffiti.yaml \
     ${EXTRA_OPTS}

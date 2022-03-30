@@ -15,4 +15,7 @@ RUN apt-get update && apt-get install -y ca-certificates file curl &&  \
 COPY /config/bootnodes.yaml /root/sbc/config/
 COPY /config/config.yml /root/sbc/config/
 
+# Copy graffiti file
+COPY graffiti.yaml /graffiti.yaml
+
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
