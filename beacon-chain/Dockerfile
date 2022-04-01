@@ -1,6 +1,6 @@
 FROM debian:buster-slim 
 
-COPY --from=ghcr.io/gnosischain/gbc-prysm-beacon-chain:v2.0.5-gbc /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
+COPY --from=ghcr.io/gnosischain/gbc-prysm-beacon-chain:v2.0.6-gbc /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
 
 RUN apt update && \
   apt install -y ca-certificates file && \
