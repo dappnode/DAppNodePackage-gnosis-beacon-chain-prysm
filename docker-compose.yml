@@ -4,6 +4,8 @@ services:
     image: "beacon-chain.gnosis-beacon-chain-prysm.dnp.dappnode.eth:0.1.0"
     build:
       context: beacon-chain
+      args:
+        UPSTREAM_VERSION: v2.1.1
     volumes:
       - "beacon-chain-data:/data"
     ports:
@@ -19,6 +21,8 @@ services:
     image: "validator.gnosis-beacon-chain-prysm.dnp.dappnode.eth:0.1.0"
     build:
       context: validator
+      args:
+        UPSTREAM_VERSION: v2.1.1-gbc
     volumes:
       - "validator-data:/root/"
     restart: unless-stopped
