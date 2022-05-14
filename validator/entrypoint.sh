@@ -10,7 +10,6 @@ export WALLET_DIR="/root/.eth2validators"
 if [[ $(validator accounts list \
     --wallet-dir="$WALLET_DIR" \
     --wallet-password-file="${WALLET_DIR}/walletpassword.txt" \
-    --gnosis \
     --accept-terms-of-use) ]]; then
     {
         echo "found validators, starging migration"

@@ -13,6 +13,7 @@ services:
       - "13000"
     restart: unless-stopped
     environment:
+      WEB3_BACKUP:
       XDAI_RPC_URL: "https://rpc.xdaichain.com/"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
@@ -22,7 +23,7 @@ services:
     build:
       context: validator
       args:
-        UPSTREAM_VERSION: v2.1.1-gbc
+        UPSTREAM_VERSION: v2.1.1
     volumes:
       - "validator-data:/root/"
     restart: unless-stopped

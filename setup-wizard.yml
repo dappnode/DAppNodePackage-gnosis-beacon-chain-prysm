@@ -21,3 +21,12 @@ fields:
       If you have not already, make sure to install and sync an xdai node of your choice.
       Then, input the URL of the node that you wish to use or a remote one:
       For example: https://rpc.xdaichain.com/
+  - id: web3Backup
+    target:
+      type: environment
+      name: WEB3_BACKUP
+      service: beacon-validator
+    title: Add a backup web3 provider
+    description: >-
+      It's a good idea to add a backup web3 provider in case your main one goes down
+    required: false

@@ -1,20 +1,30 @@
+##############
+# Base image #
+##############
+ARG UPSTREAM_VERSION
+FROM ghcr.io/gnosischain/gbc-prysm-validator:${UPSTREAM_VERSION}-gbc as base
 
-FROM debian:bullseye-slim as builder
+################
+# Config image #
+################
+FROM debian:bullseye-slim as config
 
 WORKDIR /usr/src/app
-RUN apt update && apt install curl && \
-    curl https://github.com/gnosischain/prysm-launch/blob/master/config/bootnodes.yaml -o bootnodes.yaml && \
-    curl https://github.com/gnosischain/prysm-launch/blob/master/config/config.yml -o config.yml
+RUN apt update && apt install curl --yes && \
+    curl https://raw.githubusercontent.com/gnosischain/prysm-launch/master/config/bootnodes.yaml -o bootnodes.yaml && \
+    curl https://raw.githubusercontent.com/gnosischain/prysm-launch/master/config/config.yml -o config.yml
 
+################
+# Runner image #
+################
 FROM debian:bullseye-slim 
 
-ARG UPSTREAM_VERSION
-# Get the binary from the image and configuration files
-COPY --from=ghcr.io/gnosischain/gbc-prysm-validator:${UPSTREAM_VERSION} /app/cmd/validator/validator.runfiles/prysm/cmd/validator/validator_/validator /usr/local/bin/validator
+# Get the binary from the base image
+COPY --from=base /app/cmd/validator/validator.runfiles/prysm/cmd/validator/validator_/validator /usr/local/bin/validator
 
 # Prysm launch gnosis config: https://github.com/gnosischain/prysm-launch/tree/master/config
-COPY --from=builder /usr/src/app/bootnodes.yaml /root/sbc/config/
-COPY --from=builder /usr/src/app/config.yml /root/sbc/config/
+COPY --from=config /usr/src/app/bootnodes.yaml /root/sbc/config/
+COPY --from=config /usr/src/app/config.yml /root/sbc/config/
 
 # Prysm scripts
 COPY auth-token /root/.eth2validators/auth-token
