@@ -20,12 +20,12 @@ RUN apt update && apt install curl --yes && \
 ################
 FROM debian:bullseye-slim 
 
-# Get the binary from the base image
-COPY --from=base /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
-
 RUN apt update && \
   apt install ca-certificates file --yes && \
   rm -rf /var/lib/apt/lists/*
+
+# Get the binary from the base image
+COPY --from=base /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
 
 # Prysm launch gnosis config: https://github.com/gnosischain/prysm-launch/tree/master/config
 COPY --from=config /usr/src/app/bootnodes.yaml /root/sbc/config/

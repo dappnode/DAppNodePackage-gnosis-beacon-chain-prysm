@@ -19,6 +19,9 @@ RUN apt update && apt install curl --yes && \
 ################
 FROM debian:bullseye-slim 
 
+RUN apt-get update && apt-get install -y ca-certificates file curl && \
+    rm -rf /var/lib/apt/lists/*
+
 # Get the binary from the base image
 COPY --from=base /app/cmd/validator/validator.runfiles/prysm/cmd/validator/validator_/validator /usr/local/bin/validator
 
@@ -31,9 +34,8 @@ COPY auth-token /root/.eth2validators/auth-token
 COPY eth2-migrate.sh /usr/local/bin
 COPY entrypoint.sh /usr/local/bin
 
-RUN apt-get update && apt-get install -y ca-certificates file curl &&  \
-    chmod +x /usr/local/bin/validator && \
-    chmod +x /usr/local/bin/entrypoint.sh && \
-    rm -rf /var/lib/apt/lists/*
+
+RUN chmod +x /usr/local/bin/validator && \
+    chmod +x /usr/local/bin/entrypoint.sh 
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
