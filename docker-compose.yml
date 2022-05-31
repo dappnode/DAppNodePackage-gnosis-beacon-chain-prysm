@@ -13,6 +13,7 @@ services:
       - "13000"
     restart: unless-stopped
     environment:
+      CHECKPOINT_SYNC_URL: ""
       WEB3_BACKUP:
       XDAI_RPC_URL: "https://rpc.xdaichain.com/"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"

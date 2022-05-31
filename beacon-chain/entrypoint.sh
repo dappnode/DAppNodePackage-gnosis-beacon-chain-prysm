@@ -1,6 +1,9 @@
 #!/bin/bash
 
 [[ -n $WEB3_BACKUP ]] && EXTRA_OPTS="--fallback-web3provider=${WEB3_BACKUP} ${EXTRA_OPTS}"
+if [[ -n $CHECKPOINT_SYNC_URL ]]; then
+  EXTRA_OPTS="--checkpoint-sync-url=${CHECKPOINT_SYNC_URL} --genesis-beacon-api-url=${CHECKPOINT_SYNC_URL}"
+fi
 
 exec -c beacon-chain \
   --datadir=/data \
