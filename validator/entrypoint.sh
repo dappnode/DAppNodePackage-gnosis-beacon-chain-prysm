@@ -1,15 +1,14 @@
 #!/bin/bash
 
-CLIENT="prysm"
+export CLIENT="prysm"
 NETWORK="gnosis"
 VALIDATOR_PORT=3500
-WEB3SIGNER_API="http://web3signer.web3signer-${NETWORK}.dappnode:9000"
+export WEB3SIGNER_API="http://web3signer.web3signer-${NETWORK}.dappnode:9000"
 export WALLET_DIR="/root/.eth2validators"
 
-# Copy auth-token in runtime
+# Copy auth-token in runtime to the prysm token dir
 mkdir -p ${WALLET_DIR}
 cp /auth-token ${WALLET_DIR}/auth-token
-rm /auth-token
 
 # Migrate if required
 if [[ $(validator accounts list \
