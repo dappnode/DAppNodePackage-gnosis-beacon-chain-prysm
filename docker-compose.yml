@@ -14,8 +14,8 @@ services:
     restart: unless-stopped
     environment:
       CHECKPOINT_SYNC_URL: ""
-      WEB3_BACKUP:
-      XDAI_RPC_URL: "https://rpc.xdaichain.com/"
+      WEB3_BACKUP: "https://rpc.xdaichain.com/"
+      HTTP_WEB3PROVIDER: "http://nethermind-xdai.dappnode:8545"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
       EXTRA_OPTS: ""
