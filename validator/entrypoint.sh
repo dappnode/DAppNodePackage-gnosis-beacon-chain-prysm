@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export CLIENT="prysm"
-NETWORK="gnosis"
+CLIENT="prysm"
+export NETWORK="gnosis"
 VALIDATOR_PORT=3500
 export WEB3SIGNER_API="http://web3signer.web3signer-${NETWORK}.dappnode:9000"
 export WALLET_DIR="/root/.eth2validators"
