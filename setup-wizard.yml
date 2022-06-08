@@ -26,7 +26,7 @@ fields:
       service: beacon-chain
     title: Add a backup web3 provider
     description: >-
-      It's a good idea to add a backup web3 provider in case your main one goes down. You can use the official one: **https://rpc.xdaichain.com/**
+      It's a good idea to add a backup web3 provider in case your main one goes down. You can use the official one: **https://rpc.gnosischain.com/**
     required: false
   - id: checkpointSyncUrl
     target:
