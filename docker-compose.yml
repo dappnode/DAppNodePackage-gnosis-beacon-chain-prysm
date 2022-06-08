@@ -13,7 +13,7 @@ services:
       - "13000"
     restart: unless-stopped
     environment:
-      CHECKPOINT_SYNC_URL: "https://rpc-gbc.gnosischain.com/"
+      CHECKPOINT_SYNC_URL: ""
       WEB3_BACKUP: "https://rpc.gnosischain.com/"
       HTTP_WEB3PROVIDER: "http://nethermind-xdai.dappnode:8545"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
