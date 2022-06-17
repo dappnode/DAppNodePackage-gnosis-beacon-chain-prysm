@@ -5,7 +5,7 @@ services:
     build:
       context: beacon-chain
       args:
-        UPSTREAM_VERSION: v2.1.2-gbc
+        UPSTREAM_VERSION: v2.1.2
     volumes:
       - "beacon-chain-data:/data"
     ports:
@@ -13,7 +13,9 @@ services:
       - "13000"
     restart: unless-stopped
     environment:
-      XDAI_RPC_URL: "https://rpc.xdaichain.com/"
+      CHECKPOINT_SYNC_URL: ""
+      WEB3_BACKUP: "https://rpc.gnosischain.com/"
+      HTTP_WEB3PROVIDER: "http://nethermind-xdai.dappnode:8545"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
       EXTRA_OPTS: ""
@@ -22,7 +24,7 @@ services:
     build:
       context: validator
       args:
-        UPSTREAM_VERSION: v2.1.2-gbc
+        UPSTREAM_VERSION: v2.1.2
     volumes:
       - "validator-data:/root/"
     restart: unless-stopped

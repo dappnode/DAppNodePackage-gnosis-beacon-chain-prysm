@@ -1,18 +1,26 @@
 {
   "name": "gnosis-beacon-chain-prysm.dnp.dappnode.eth",
-  "version": "0.1.0",
-  "upstreamVersion": "v2.1.2-gbc",
+  "version": "1.0.0",
+  "upstreamVersion": "v2.1.2",
+  "upstreamRepo": "prysmaticlabs/prysm",
+  "upstreamArg": "UPSTREAM_VERSION",
   "description": "Gnosis Beacon Chain (GBC) brings vital canary network functionality to the burgeoning Ethereum 2.0 ecosystem. Applications can iterate through real-world strategies, stage important applications, or choose to run DApps in a faster, lower-stakes environment while enjoying the benefits of massive scalability. This package includes a Prysm validator client to validate the PoS chain",
-  "shortDescription":"Gnosis Beacon Chain node + validator",
+  "shortDescription": "Gnosis Beacon Chain node + validator",
   "type": "service",
   "mainService": "validator",
-  "architectures": ["linux/amd64", "linux/arm64"],
+  "architectures": ["linux/amd64"],
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
   "contributors": [
+    "pablo <pablo@dappnode.io> (https://github.com/pablomendezroyo)",
     "tropicar <tropicar@dappnode.io> (https://github.com/tropicar)"
   ],
   "categories": ["Blockchain", "ETH2.0"],
   "license": "GLP-3.0",
+  "chain": {
+    "driver": "ethereum-beacon-chain",
+    "serviceName": "beacon-chain",
+    "portNumber": 3500
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain-Prysm.git"
@@ -21,7 +29,7 @@
     "url": "https://github.com/dappnode/DAppNodePackage-Gnosis-Beacon-Chain-Prysm/issues"
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.39"
+    "minimumDappnodeVersion": "0.2.51"
   },
   "backup": [
     {
@@ -31,8 +39,8 @@
     }
   ],
   "links": {
-    "ui": "http://gnosis-beacon-chain-prysm.dappnode/",
-    "readme": "https://github.com/dappnode/DAppNodePackage-prysm-prater",
+    "ui": "http://ui.web3signer-gnosis.dappnode?signer_url=http://web3signer.web3signer-gnosis.dappnode:9000",
+    "readme": "https://github.com/dappnode/DAppNodePackage-gnosis-beacon-chain-prysm",
     "docs": "https://docs.gnosischain.com/"
   }
 }
