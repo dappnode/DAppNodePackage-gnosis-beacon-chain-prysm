@@ -13,7 +13,7 @@ services:
       - "13000"
     restart: unless-stopped
     environment:
-      XDAI_RPC_URL: "https://rpc.xdaichain.com/"
+      XDAI_RPC_URL: "https://rpc.gnosischain.com/"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
       EXTRA_OPTS: ""
