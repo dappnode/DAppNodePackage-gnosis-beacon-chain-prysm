@@ -14,7 +14,6 @@ RUN apt update && apt install curl --yes && \
   curl https://raw.githubusercontent.com/gnosischain/prysm-launch/master/config/bootnodes.yaml -o bootnodes.yaml && \
   curl https://raw.githubusercontent.com/gnosischain/prysm-launch/master/config/config.yml -o config.yml
 
-
 ################
 # Runner image #
 ################
