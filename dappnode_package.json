@@ -31,13 +31,6 @@
   "requirements": {
     "minimumDappnodeVersion": "0.2.51"
   },
-  "backup": [
-    {
-      "name": "eth2validators",
-      "path": "/root/.eth2validators",
-      "service": "validator"
-    }
-  ],
   "links": {
     "ui": "http://ui.web3signer-gnosis.dappnode?signer_url=http://web3signer.web3signer-gnosis.dappnode:9000",
     "readme": "https://github.com/dappnode/DAppNodePackage-gnosis-beacon-chain-prysm",
