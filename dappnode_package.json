@@ -35,5 +35,8 @@
     "ui": "http://ui.web3signer-gnosis.dappnode?signer_url=http://web3signer.web3signer-gnosis.dappnode:9000",
     "readme": "https://github.com/dappnode/DAppNodePackage-gnosis-beacon-chain-prysm",
     "docs": "https://docs.gnosischain.com/"
+  },
+  "warnings": {
+    "onMajorUpdate": "This is a major update of Prysm Gnosis, it will start validating with the web3signer. There will be a migration where your keystores will be replaced to a new location, the web3signer. From now on, the UI to handle the keystores will be available at the web3signer. Pay attention to the update and make sure the keystores are successfully relocated"
   }
 }
