@@ -28,16 +28,6 @@ fields:
     description: >-
       It's a good idea to add a backup web3 provider in case your main one goes down. You can use the official one: **https://rpc.gnosischain.com/**
     required: false
-  - id: checkpointSyncUrl
-    target:
-      type: environment
-      name: CHECKPOINT_SYNC_URL
-      service: beacon-chain
-    title: Checkpoint for fast sync
-    description: >-
-      To get Prysm up and running in only a few minutes, you can start Prysm from a recent finalized checkpoint state rather than syncing from genesis. This is substantially **faster** and consumes **less resources** than syncing from genesis, while still providing all the same features. Be sure you are using a trusted node for the fast sync.
-      Get your checkpoint sync from a running gnosis beacon chain node or use the official one **https://rpc-gbc.gnosischain.com/**
-    required: false
   - id: feeRecipientAddress
     target:
       type: environment
