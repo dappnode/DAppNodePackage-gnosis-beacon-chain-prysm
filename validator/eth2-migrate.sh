@@ -29,7 +29,7 @@ function ensure_requirements() {
   # Check if web3signer is available: https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Server-Status
   if [ "$(curl -s -X GET \
     -H "Content-Type: application/json" \
-    -H "Host: validator.gnosis-beacon-chain-prysm.dappnode" \
+    -H "Host: prysm.migration-gnosis.dappnode" \
     --write-out '%{http_code}' \
     --silent \
     --output /dev/null \
@@ -189,7 +189,7 @@ function import_validators() {
     --retry-connrefused \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -H "Host: validator.gnosis-beacon-chain-prysm.dappnode" \
+    -H "Host: prysm.migration-gnosis.dappnode" \
     "${WEB3SIGNER_API}"/eth/v1/keystores
 
   echo "${INFO} validators imported"
