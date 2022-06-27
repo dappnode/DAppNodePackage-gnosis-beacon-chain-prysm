@@ -26,17 +26,16 @@ REQUEST_BODY_FILE="${BACKUP_DIR}/request_body.json"
 # Ensure requirements
 function ensure_requirements() {
   # Try for 3 minutes
-  # Check if web3signer is available: https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Server-Status
+  # Check if beacon is available
   if [ "$(curl -s -X GET \
     -H "Content-Type: application/json" \
-    -H "Host: prysm.migration-gnosis.dappnode" \
     --write-out '%{http_code}' \
     --silent \
     --output /dev/null \
-    --retry 30 \
+    --retry 60 \
     --retry-delay 3 \
-    --retry-connrefused \
-    "${WEB3SIGNER_API}/upcheck")" == 200 ]; then
+    --retry-all-errors
+    http://beacon-chain.gnosis-beacon-chain-prysm.dappnode:3500/eth/v1/beacon/genesis)" == 200 ]; then
     echo "${INFO} web3signer available"
   else
     {
@@ -47,16 +46,17 @@ function ensure_requirements() {
   fi
 
   # Try for 3 minutes
-  # Check if beacon is available
+  # Check if web3signer is available: https://consensys.github.io/web3signer/web3signer-eth2.html#tag/Server-Status
   if [ "$(curl -s -X GET \
     -H "Content-Type: application/json" \
+    -H "Host: prysm.migration-gnosis.dappnode" \
     --write-out '%{http_code}' \
     --silent \
     --output /dev/null \
-    --retry 30 \
+    --retry 60 \
     --retry-delay 3 \
-    --retry-connrefused \
-    http://beacon-chain.gnosis-beacon-chain-prysm.dappnode:3500/eth/v1/beacon/genesis)" == 200 ]; then
+    --retry-all-errors
+    "${WEB3SIGNER_API}/upcheck")" == 200 ]; then
     echo "${INFO} web3signer available"
   else
     {
@@ -184,9 +184,9 @@ function create_request_body_file() {
 function import_validators() {
   curl -X POST \
     -d @"${REQUEST_BODY_FILE}" \
-    --retry 30 \
+    --retry 60 \
     --retry-delay 3 \
-    --retry-connrefused \
+    --retry-all-errors \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -H "Host: prysm.migration-gnosis.dappnode" \
