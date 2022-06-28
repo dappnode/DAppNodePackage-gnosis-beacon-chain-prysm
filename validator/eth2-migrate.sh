@@ -18,7 +18,7 @@ BACKUP_ZIP_FILE="${BACKUP_DIR}/backup.zip"
 BACKUP_KEYSTORES_DIR="${BACKUP_DIR}/keystores" # Directory where the keystores are stored in format: keystore_0.json keystore_1.json ...
 BACKUP_SLASHING_FILE="${BACKUP_DIR}/slashing_protection.json"
 BACKUP_WALLETPASSWORD_FILE="${BACKUP_DIR}/walletpassword.txt"
-REQUEST_BODY_FILE="${BACKUP_DIR}/request_body.json"
+REQUEST_BODY_FILE="${BACKUP_DIR}/request_body"
 
 #############
 # FUNCTIONS #
