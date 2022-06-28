@@ -9,8 +9,8 @@ services:
     volumes:
       - "beacon-chain-data:/data"
     ports:
-      - 12000/udp
-      - "13000"
+      - "12000/udp"
+      - "13000/tcp"
     restart: unless-stopped
     environment:
       WEB3_BACKUP: "https://rpc.gnosischain.com/"
