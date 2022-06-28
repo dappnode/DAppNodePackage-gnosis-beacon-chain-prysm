@@ -34,7 +34,7 @@ function ensure_requirements() {
     --output /dev/null \
     --retry 60 \
     --retry-delay 3 \
-    --retry-all-errors
+    --retry-all-errors \
     http://beacon-chain.gnosis-beacon-chain-prysm.dappnode:3500/eth/v1/beacon/genesis)" == 200 ]; then
     echo "${INFO} web3signer available"
   else
@@ -55,7 +55,7 @@ function ensure_requirements() {
     --output /dev/null \
     --retry 60 \
     --retry-delay 3 \
-    --retry-all-errors
+    --retry-all-errors \
     "${WEB3SIGNER_API}/upcheck")" == 200 ]; then
     echo "${INFO} web3signer available"
   else
