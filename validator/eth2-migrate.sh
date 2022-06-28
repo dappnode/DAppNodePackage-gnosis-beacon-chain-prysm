@@ -29,7 +29,7 @@ function ensure_files_exist() {
   # Check if wallet directory exists
   if [ ! -d "${WALLET_DIR}" ]; then
     {
-      echo "${ERROR} wallet directory not found, manual migration required"
+      echo "${ERROR} wallet directory not found, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
       empty_validator_volume
       exit 1
     }
@@ -38,7 +38,7 @@ function ensure_files_exist() {
   # Check if wallet password file exists
   if [ ! -f "${WALLETPASSWORD_FILE}" ]; then
     {
-      echo "${ERROR} wallet password file not found, manual migration required"
+      echo "${ERROR} wallet password file not found, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
       empty_validator_volume
       exit 1
     }
@@ -54,14 +54,14 @@ function ensure_requirements() {
     --write-out '%{http_code}' \
     --silent \
     --output /dev/null \
-    --retry 60 \
+    --retry 30 \
     --retry-delay 3 \
     --retry-all-errors \
     http://beacon-chain.gnosis-beacon-chain-prysm.dappnode:3500/eth/v1/beacon/genesis)" == 200 ]; then
     echo "${INFO} web3signer available"
   else
     {
-      echo "${ERROR} web3signer not available after 3 minutes, manual migration required"
+      echo "${ERROR} beacon-chain not available after 3 minutes, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
       empty_validator_volume
       exit 1
     }
@@ -75,14 +75,14 @@ function ensure_requirements() {
     --write-out '%{http_code}' \
     --silent \
     --output /dev/null \
-    --retry 60 \
+    --retry 30 \
     --retry-delay 3 \
     --retry-all-errors \
     "${WEB3SIGNER_API}/upcheck")" == 200 ]; then
     echo "${INFO} web3signer available"
   else
     {
-      echo "${ERROR} web3signer not available after 3 minutes, manual migration required"
+      echo "${ERROR} web3signer not available after 3 minutes, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
       empty_validator_volume
       exit 1
     }
@@ -121,7 +121,7 @@ function get_public_keys() {
     fi
   else
     {
-      echo "${ERROR} validator accounts list failed, manual migration required"
+      echo "${ERROR} validator accounts list failed, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
       empty_validator_volume
       exit 1
     }
@@ -138,7 +138,7 @@ function export_keystores_walletpassowrd() {
     --backup-password-file="${WALLETPASSWORD_FILE}" \
     --backup-public-keys="${PUBLIC_KEYS_COMMA_SEPARATED}" \
     --accept-terms-of-use || {
-    echo "${ERROR} failed to export keystores, manual migration required"
+    echo "${ERROR} failed to export keystores, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
     empty_validator_volume
     exit 1
   }
@@ -146,18 +146,18 @@ function export_keystores_walletpassowrd() {
   # Create manual_migration file
   mkdir -p /root/manual_migration
   cp "$BACKUP_ZIP_FILE" "$MANUAL_MIGRATION_BACKUP_FILE"
-  zip -r "$MANUAL_MIGRATION_BACKUP_FILE" "${WALLETPASSWORD_FILE}"
+  zip -j "$MANUAL_MIGRATION_BACKUP_FILE" "${WALLETPASSWORD_FILE}"
 
   # Copy walletpassword to backup folder
   cp "${WALLETPASSWORD_FILE}" "${BACKUP_WALLETPASSWORD_FILE}" || {
-    echo "${ERROR} failed to export walletpassword.txt, manual migration required"
+    echo "${ERROR} failed to export walletpassword.txt, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
     empty_validator_volume
     exit 1
   }
 
   # Unzip keystores
   unzip -d "${BACKUP_KEYSTORES_DIR}" "${BACKUP_ZIP_FILE}" || {
-    echo "${ERROR} failed to unzip keystores, manual migration required"
+    echo "${ERROR} failed to unzip keystores, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
     empty_validator_volume
     exit 1
   }
@@ -169,7 +169,7 @@ function export_slashing_protection() {
     --datadir="${WALLET_DIR}" \
     --slashing-protection-export-dir="${BACKUP_DIR}" \
     --accept-terms-of-use || {
-    echo "${ERROR} failed to export slashing protection, manual migration required"
+    echo "${ERROR} failed to export slashing protection, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
     empty_validator_volume
     exit 1
   }
@@ -193,7 +193,7 @@ function create_request_body_file() {
 function import_validators() {
   curl -X POST \
     -d @"${REQUEST_BODY_FILE}" \
-    --retry 60 \
+    --retry 30 \
     --retry-delay 3 \
     --retry-all-errors \
     -H "Content-Type: application/json" \
@@ -211,7 +211,7 @@ function import_validators() {
 # Remove all content except validator.db amd tosaccepted file
 function empty_validator_volume() {
   # Moves tosaccepted file to walletdir
-  mv "/root/.eth2/tosaccepted" "${WALLET_DIR}"/tosaccepted || echo "${WARN} failed to move tosaccepted file, manual migration required"
+  mv "/root/.eth2/tosaccepted" "${WALLET_DIR}"/tosaccepted || echo "${WARN} failed to move tosaccepted file, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
   # Removes old --datadir. Not needed anymore
   rm -rf "/root/.eth2" || echo "${WARN} failed to remove /root/.eth2"
   # Removes old validator files: keystores and walletpassword.txt
