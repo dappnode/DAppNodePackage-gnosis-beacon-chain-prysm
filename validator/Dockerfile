@@ -19,7 +19,7 @@ RUN apt update && apt install curl --yes && \
 ################
 FROM debian:bullseye-slim 
 
-RUN apt-get update && apt-get install -y ca-certificates file curl jq unzip && \
+RUN apt-get update && apt-get install -y ca-certificates file curl jq unzip zip && \
     rm -rf /var/lib/apt/lists/*
 
 # Get the binary from the base image
