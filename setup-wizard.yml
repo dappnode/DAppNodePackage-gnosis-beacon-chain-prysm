@@ -12,10 +12,9 @@ fields:
   - id: HTTP_WEB3PROVIDER
     target:
       type: environment
-      name: XDAI_RPC_URL
+      name: HTTP_WEB3PROVIDER
       service: beacon-chain
-    title: XDAI RPC URL
-    required: true
+    title: Gnosis chain node URL
     description: >-
       Your Beacon chain node must have access to a syncronized xdai mainnet node. 
       If you have not already, make sure to install and sync an xdai node of your choice.
@@ -25,3 +24,25 @@ fields:
                   https://rpc.ankr.com/gnosis
                   https://gnosischain-rpc.gateway.pokt.network
                   https://gnosis-mainnet.public.blastapi.io
+      If you have not already, make sure to install and sync an xdai node of your choice ([install nethermind gnosis](http://my.dappnode/#/installer/nethermind-xdai.dnp.dappnode.eth)) and use its RPC url
+      Or use the official one: https://rpc.xdaichain.com/
+  - id: web3Backup
+    target:
+      type: environment
+      name: WEB3_BACKUP
+      service: beacon-chain
+    title: Add a backup web3 provider
+    description: >-
+      It's a good idea to add a backup web3 provider in case your main one goes down. You can use the official one: **https://rpc.gnosischain.com/**
+    required: false
+  - id: feeRecipientAddress
+    target:
+      type: environment
+      name: FEE_RECIPIENT_ADDRESS
+      service: validator
+    title: Fee Recipient Address
+    description: >-
+      Fee Recipient is a feature that lets you specify a priority fee recipient address on your validator client instance and beacon node. After The Merge, execution clients will begin depositing priority fees into this address whenever your validator client proposes a new block.
+    required: true
+    pattern: "^0x[a-fA-F0-9]{40}$"
+    patternErrorMessage: Must be a valid address (0x1fd16a...)
