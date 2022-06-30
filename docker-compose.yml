@@ -13,6 +13,7 @@ services:
       - "13000/tcp"
     restart: unless-stopped
     environment:
+      XDAI_RPC_URL: "https://rpc.gnosischain.com/"
       WEB3_BACKUP: "https://rpc.gnosischain.com/"
       HTTP_WEB3PROVIDER: "http://nethermind-xdai.dappnode:8545"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
