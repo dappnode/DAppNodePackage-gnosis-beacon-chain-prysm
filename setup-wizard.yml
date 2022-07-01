@@ -17,15 +17,8 @@ fields:
     title: Gnosis chain node URL
     description: >-
       Your Beacon chain node must have access to a syncronized xdai mainnet node. 
-      If you have not already, make sure to install and sync an xdai node of your choice.
-      Then, input the URL of the node that you wish to use or a remote one:
-      For example:
-                  https://rpc.gnosischain.com
-                  https://rpc.ankr.com/gnosis
-                  https://gnosischain-rpc.gateway.pokt.network
-                  https://gnosis-mainnet.public.blastapi.io
       If you have not already, make sure to install and sync an xdai node of your choice ([install nethermind gnosis](http://my.dappnode/#/installer/nethermind-xdai.dnp.dappnode.eth)) and use its RPC url
-      Or use the official one: https://rpc.xdaichain.com/
+      Or use the official one: https://rpc.gnosischain.com/
   - id: web3Backup
     target:
       type: environment
