@@ -201,10 +201,6 @@ function import_validators() {
     -H "Host: prysm.migration-gnosis.dappnode" \
     "${WEB3SIGNER_API}"/eth/v1/keystores
 
-  # If this point is reached, then the migration was succeed, otherwise the error_handling will raise
-  # Delete manual_migration file
-  rm -rf "$MANUAL_MIGRATION_BACKUP_FILE"
-
   echo "${INFO} validators imported"
 }
 
