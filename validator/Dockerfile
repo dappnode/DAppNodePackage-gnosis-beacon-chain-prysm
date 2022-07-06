@@ -1,3 +1,5 @@
+ARG UPSTREAM_VERSION
+
 ###############
 # Prune image #
 ###############
@@ -10,7 +12,6 @@ RUN apk update && apk add git && git clone https://github.com/dappnode/prune-sla
 ##############
 # Base image #
 ##############
-ARG UPSTREAM_VERSION
 FROM ghcr.io/gnosischain/gbc-prysm-validator:${UPSTREAM_VERSION}-gbc as base
 
 ################
