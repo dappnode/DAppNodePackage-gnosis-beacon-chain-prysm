@@ -40,7 +40,7 @@ COPY --from=config /usr/src/app/bootnodes.yaml /root/sbc/config/
 COPY --from=config /usr/src/app/config.yml /root/sbc/config/
 
 # Copy slashing prune
-COPY --from=prune slashing-prune /usr/local/bin
+COPY --from=prune /usr/src/app/slashing-prune /usr/local/bin
 
 # Prysm scripts
 COPY auth-token /auth-token
