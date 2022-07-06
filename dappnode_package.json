@@ -15,7 +15,7 @@
     "tropicar <tropicar@dappnode.io> (https://github.com/tropicar)"
   ],
   "categories": ["Blockchain", "ETH2.0"],
-  "license": "GLP-3.0",
+  "license": "GPL-3.0",
   "chain": {
     "driver": "ethereum-beacon-chain",
     "serviceName": "beacon-chain",
