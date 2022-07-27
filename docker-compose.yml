@@ -5,12 +5,12 @@ services:
     build:
       context: beacon-chain
       args:
-        UPSTREAM_VERSION: v2.1.2
+        UPSTREAM_VERSION: v2.1.4-rc.0
     volumes:
       - "beacon-chain-data:/data"
     ports:
-      - "12000/udp"
-      - "13000/tcp"
+      - 12000/udp
+      - 13000/tcp
     restart: unless-stopped
     environment:
       WEB3_BACKUP: "https://rpc.gnosischain.com/"
@@ -23,7 +23,7 @@ services:
     build:
       context: validator
       args:
-        UPSTREAM_VERSION: v2.1.2
+        UPSTREAM_VERSION: v2.1.4-rc.0
     volumes:
       - "validator-data:/root/"
     restart: unless-stopped
