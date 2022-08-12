@@ -9,12 +9,14 @@ services:
     volumes:
       - "beacon-chain-data:/data"
     ports:
-      - "12000/udp"
-      - "13000/tcp"
+      - "13003:13003/udp"
+      - "14003:14003/tcp"
     restart: unless-stopped
     environment:
+      P2P_TCP_PORT: 14003
+      P2P_UDP_PORT: 13003
       WEB3_BACKUP: "https://rpc.gnosischain.com/"
-      HTTP_WEB3PROVIDER: "http://nethermind-xdai.dappnode:8545"
+      HTTP_ENGINE: "http://nethermind-xdai.dappnode:8545"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
       EXTRA_OPTS: ""

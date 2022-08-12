@@ -9,6 +9,8 @@ exec -c beacon-chain \
   --rpc-host=0.0.0.0 \
   --grpc-gateway-host=0.0.0.0 \
   --monitoring-host=0.0.0.0 \
+  --p2p-tcp-port=$P2P_TCP_PORT \
+  --p2p-udp-port=$P2P_UDP_PORT \
   --p2p-local-ip=0.0.0.0 \
   --http-web3provider=$HTTP_WEB3PROVIDER \
   --grpc-gateway-port=3500 \
@@ -18,4 +20,5 @@ exec -c beacon-chain \
   --bootstrap-node /root/sbc/config/bootnodes.yaml \
   --config-file /root/sbc/config/config.yml \
   --chain-config-file /root/sbc/config/config.yml \
+  --jwt-secret=/jwtsecret \
   $EXTRA_OPTS
