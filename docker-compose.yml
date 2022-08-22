@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   beacon-chain:
-    image: "beacon-chain.gnosis-beacon-chain-prysm.dnp.dappnode.eth:0.1.0"
+    image: "beacon-chain.gnosis-beacon-chain-prysm.dnp.dappnode.eth:1.0.0"
     build:
       context: beacon-chain
       args:
@@ -15,7 +15,6 @@ services:
     environment:
       P2P_TCP_PORT: 14003
       P2P_UDP_PORT: 13003
-      WEB3_BACKUP: "https://rpc.gnosischain.com/"
       HTTP_ENGINE: "http://nethermind-xdai.dappnode:8551"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077

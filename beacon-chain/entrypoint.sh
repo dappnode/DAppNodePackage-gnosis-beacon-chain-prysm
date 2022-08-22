@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [[ -n $WEB3_BACKUP ]] && [[ $EXTRA_OPTS != *"--fallback-web3provider"* ]]; then
-  EXTRA_OPTS="--fallback-web3provider=${WEB3_BACKUP} ${EXTRA_OPTS}"
-fi
-
 exec -c beacon-chain \
   --datadir=/data \
   --rpc-host=0.0.0.0 \

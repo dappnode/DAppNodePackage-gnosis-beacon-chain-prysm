@@ -22,15 +22,7 @@ fields:
       - Nethermind `http://nethermind-xdai.dappnode:8551` - [Install link](http://my.dappnode/#/installer/nethermind-xdai.dappnode.eth)
 
       - Remote node (example URL) `https://remote-node-provider.io` - Not an option with the upcoming merge.
-  - id: web3Backup
-    target:
-      type: environment
-      name: WEB3_BACKUP
-      service: beacon-chain
-    title: Add a backup web3 provider
-    description: >-
-      It's a good idea to add a backup web3 provider in case your main one goes down. You can use the official one: **https://rpc.gnosischain.com/**
-    required: false
+
   - id: feeRecipientAddress
     target:
       type: environment
@@ -38,7 +30,7 @@ fields:
       service: validator
     title: Fee Recipient Address
     description: >-
-      Fee Recipient is a feature that lets you specify a priority fee recipient address on your validator client instance and beacon node. After The Merge, execution clients will begin depositing priority fees into this address whenever your validator client proposes a new block.
+      Fee Recipient is a feature that lets you specify a priority fee recipient address on yur validator client instance and beacon node. After The Merge, execution clients will begin depositing priority fees into this address whenever your validator client proposes a new block.
     required: true
     pattern: "^0x[a-fA-F0-9]{40}$"
     patternErrorMessage: Must be a valid address (0x1fd16a...)
