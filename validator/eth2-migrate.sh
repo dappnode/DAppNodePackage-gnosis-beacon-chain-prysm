@@ -17,6 +17,7 @@ BACKUP_DIR="${WALLET_DIR}/backup"
 BACKUP_ZIP_FILE="${BACKUP_DIR}/backup.zip"
 BACKUP_KEYSTORES_DIR="${BACKUP_DIR}/keystores" # Directory where the keystores are stored in format: keystore_0.json keystore_1.json ...
 BACKUP_SLASHING_FILE="${BACKUP_DIR}/slashing_protection.json"
+BACKUP_SLASHING_FILE_PRUNE="${BACKUP_DIR}/slashing_protection_prune.json"
 BACKUP_WALLETPASSWORD_FILE="${BACKUP_DIR}/walletpassword.txt"
 REQUEST_BODY_FILE="${BACKUP_DIR}/request_body"
 
@@ -173,6 +174,13 @@ function export_slashing_protection() {
     empty_validator_volume
     exit 1
   }
+
+  # Prune the slashing data to prevent the web3signer from crashing due to timeout
+  slashing-prune --source-path "$BACKUP_SLASHING_FILE" --target-path "$BACKUP_SLASHING_FILE_PRUNE" || {
+    echo "${ERROR} failed to export slashing protection, manual migration required. Please check https://gnosis-manual-migration.dappnode.io to get more info"
+    empty_validator_volume
+    exit 1
+  }
 }
 
 # Create request body file
@@ -185,7 +193,7 @@ function create_request_body_file() {
     echo $(jq --slurpfile keystore ${KEYSTORE_FILE} '.keystores += [$keystore[0]|tojson]' ${REQUEST_BODY_FILE}) >${REQUEST_BODY_FILE}
     echo $(jq --arg walletpassword "$(cat ${BACKUP_WALLETPASSWORD_FILE})" '.passwords += [$walletpassword]' ${REQUEST_BODY_FILE}) >${REQUEST_BODY_FILE}
   done
-  echo $(jq --slurpfile slashing $BACKUP_SLASHING_FILE '.slashing_protection |= [$slashing[0]|tojson][0]' $REQUEST_BODY_FILE) >${REQUEST_BODY_FILE}
+  echo $(jq --slurpfile slashing $BACKUP_SLASHING_FILE_PRUNE '.slashing_protection |= [$slashing[0]|tojson][0]' $REQUEST_BODY_FILE) >${REQUEST_BODY_FILE}
 }
 
 # Import validators with request body file
@@ -200,10 +208,6 @@ function import_validators() {
     -H "Accept: application/json" \
     -H "Host: prysm.migration-gnosis.dappnode" \
     "${WEB3SIGNER_API}"/eth/v1/keystores
-
-  # If this point is reached, then the migration was succeed, otherwise the error_handling will raise
-  # Delete manual_migration file
-  rm -rf "$MANUAL_MIGRATION_BACKUP_FILE"
 
   echo "${INFO} validators imported"
 }

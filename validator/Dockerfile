@@ -1,7 +1,17 @@
+ARG UPSTREAM_VERSION
+
+###############
+# Prune image #
+###############
+# golang alpine 1.17
+FROM golang:1.17-alpine as prune
+WORKDIR /usr/src/app
+RUN apk update && apk add git && git clone https://github.com/dappnode/prune-slashing-protection.git && \
+    go build -o slashing-prune ./prune-slashing-protection/slashing-prune.go
+
 ##############
 # Base image #
 ##############
-ARG UPSTREAM_VERSION
 FROM ghcr.io/gnosischain/gbc-prysm-validator:${UPSTREAM_VERSION}-gbc as base
 
 ################
@@ -28,6 +38,9 @@ COPY --from=base /app/cmd/validator/validator.runfiles/prysm/cmd/validator/valid
 # Prysm launch gnosis config: https://github.com/gnosischain/prysm-launch/tree/master/config
 COPY --from=config /usr/src/app/bootnodes.yaml /root/sbc/config/
 COPY --from=config /usr/src/app/config.yml /root/sbc/config/
+
+# Copy slashing prune
+COPY --from=prune /usr/src/app/slashing-prune /usr/local/bin
 
 # Prysm scripts
 COPY auth-token /auth-token
