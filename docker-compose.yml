@@ -9,7 +9,7 @@ services:
     volumes:
       - "beacon-chain-data:/data"
     ports:
-      - "12004:12004/udp"
+      - "13003:13003/udp"
       - "14003:14003/tcp"
     restart: unless-stopped
     environment:
