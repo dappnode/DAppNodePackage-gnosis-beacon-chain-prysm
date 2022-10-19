@@ -18,7 +18,7 @@ services:
       HTTP_WEB3PROVIDER: "http://nethermind-xdai.dappnode:8545"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
-      P2P_TCP_PORT: 13004
+      P2P_TCP_PORT: 14003
       P2P_UDP_PORT: 13003
       EXTRA_OPTS: ""
   validator:
