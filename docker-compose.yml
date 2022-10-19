@@ -10,7 +10,7 @@ services:
       - "beacon-chain-data:/data"
     ports:
       - "12004:12004/udp"
-      - "13004:13004/tcp"
+      - "14003:14003/tcp"
     restart: unless-stopped
     environment:
       XDAI_RPC_URL: "https://rpc.gnosischain.com/"
