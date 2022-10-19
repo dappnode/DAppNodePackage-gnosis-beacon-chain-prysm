@@ -19,7 +19,7 @@ services:
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
       P2P_TCP_PORT: 13004
-      P2P_UDP_PORT: 12004
+      P2P_UDP_PORT: 13003
       EXTRA_OPTS: ""
   validator:
     image: "validator.gnosis-beacon-chain-prysm.dnp.dappnode.eth:0.1.0"
