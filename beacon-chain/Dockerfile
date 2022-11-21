@@ -2,7 +2,7 @@
 # Base image #
 ##############
 ARG UPSTREAM_VERSION
-FROM ghcr.io/gnosischain/gbc-prysm-beacon-chain:${UPSTREAM_VERSION}-gbc as base
+FROM ghcr.io/gnosischain/gbc-prysm-beacon-chain:${UPSTREAM_VERSION} as base
 
 ################
 # Config image #
