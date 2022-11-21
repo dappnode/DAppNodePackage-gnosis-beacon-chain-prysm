@@ -13,8 +13,8 @@ services:
       - "14003:14003/tcp"
     restart: unless-stopped
     environment:
-      WEB3_BACKUP: "https://rpc.gnosischain.com/"
-      HTTP_WEB3PROVIDER: "http://nethermind-xdai.dappnode:8545"
+      HTTP_ENGINE: ""
+      CHECKPOINT_SYNC_URL: ""
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
       P2P_TCP_PORT: 14003
