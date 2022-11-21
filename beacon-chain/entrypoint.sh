@@ -6,34 +6,18 @@ else
   EXTRA_OPTS="--genesis-state=/genesis.ssz ${EXTRA_OPTS}"
 fi
 
-case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET in
-"geth.dnp.dappnode.eth")
-  HTTP_ENGINE="http://geth.dappnode:8551"
+case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS in
+"nethermind-gnosis.dappnode.eth")
+  HTTP_ENGINE="http://nethermind-gnosis.dappnode:8551"
   ;;
-"nethermind.public.dappnode.eth")
-  HTTP_ENGINE="http://nethermind.public.dappnode:8551"
-  ;;
-"erigon.dnp.dappnode.eth")
-  HTTP_ENGINE="http://erigon.dappnode:8551"
-  ;;
-"besu.public.dappnode.eth")
-  HTTP_ENGINE="http://besu.public.dappnode:8551"
+"erigon-gnosis.dnp.dappnode.eth")
+  HTTP_ENGINE="http://erigon-gnosis.dappnode:8551"
   ;;
 *)
-  echo "Unknown value for _DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET: $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET"
-  HTTP_ENGINE=$_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET
+  echo "Unknown value for _DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS: $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS"
+  HTTP_ENGINE=$_DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS
   ;;
 esac
-
-apt update
-apt install -y curl
-
-# MEVBOOST: https://hackmd.io/@prysmaticlabs/BJeinxFsq
-if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" == "true" ]; then
-  echo "MEVBOOST is enabled"
-  MEVBOOST_URL="http://mev-boost.mev-boost.dappnode:18550"
-  EXTRA_OPTS="--http-mev-relay=${MEVBOOST_URL} ${EXTRA_OPTS}"
-fi
 
 exec -c beacon-chain \
   --datadir=/data \
