@@ -7,8 +7,8 @@ else
 fi
 
 case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS in
-"nethermind-gnosis.dappnode.eth")
-  HTTP_ENGINE="http://nethermind-gnosis.dappnode:8551"
+"nethermind-xdai.dnp.dappnode.eth")
+  HTTP_ENGINE="http://nethermind-xdai.dappnode:8551"
   ;;
 "erigon-gnosis.dnp.dappnode.eth")
   HTTP_ENGINE="http://erigon-gnosis.dappnode:8551"
