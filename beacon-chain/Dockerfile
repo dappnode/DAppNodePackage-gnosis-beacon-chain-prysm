@@ -2,7 +2,7 @@
 # Base image #
 ##############
 ARG UPSTREAM_VERSION
-FROM ghcr.io/gnosischain/gbc-prysm-beacon-chain:${UPSTREAM_VERSION}-gbc as base
+FROM ghcr.io/gnosischain/gbc-prysm-beacon-chain:${UPSTREAM_VERSION} as base
 
 ################
 # Config image #
@@ -31,5 +31,6 @@ COPY --from=config /usr/src/app/bootnodes.yaml /root/sbc/config/
 COPY --from=config /usr/src/app/config.yml /root/sbc/config/
 
 COPY entrypoint.sh /usr/local/bin
+COPY jwtsecret.hex /jwtsecret
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
