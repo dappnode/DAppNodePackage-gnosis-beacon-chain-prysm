@@ -1,11 +1,11 @@
 version: "3.4"
 services:
   beacon-chain:
-    image: "beacon-chain.gnosis-beacon-chain-prysm.dnp.dappnode.eth:1.0.0"
+    image: "beacon-chain.gnosis-beacon-chain-prysm.dnp.dappnode.eth:0.1.0"
     build:
       context: beacon-chain
       args:
-        UPSTREAM_VERSION: v3.0.0-pre-1
+        UPSTREAM_VERSION: v2.1.2
     volumes:
       - "beacon-chain-data:/data"
     ports:
@@ -13,19 +13,19 @@ services:
       - "14003:14003/tcp"
     restart: unless-stopped
     environment:
-      HTTP_ENGINE: ""
-      CHECKPOINT_SYNC_URL: ""
+      WEB3_BACKUP: "https://rpc.gnosischain.com/"
+      HTTP_WEB3PROVIDER: "http://nethermind-xdai.dappnode:8545"
       CORSDOMAIN: "http://gnosis-beacon-chain-prysm.dappnode"
       DEPLOYMENT_BLOCK: 19469077
       P2P_TCP_PORT: 14003
       P2P_UDP_PORT: 13003
       EXTRA_OPTS: ""
   validator:
-    image: "validator.gnosis-beacon-chain-prysm.dnp.dappnode.eth:1.0.0"
+    image: "validator.gnosis-beacon-chain-prysm.dnp.dappnode.eth:0.1.0"
     build:
       context: validator
       args:
-        UPSTREAM_VERSION: v3.0.0-pre-1
+        UPSTREAM_VERSION: v2.1.2
     volumes:
       - "validator-data:/root/"
     restart: unless-stopped

@@ -12,7 +12,7 @@ RUN apk update && apk add git && git clone https://github.com/dappnode/prune-sla
 ##############
 # Base image #
 ##############
-FROM ghcr.io/gnosischain/gbc-prysm-validator:${UPSTREAM_VERSION} as base
+FROM ghcr.io/gnosischain/gbc-prysm-validator:${UPSTREAM_VERSION}-gbc as base
 
 ################
 # Config image #

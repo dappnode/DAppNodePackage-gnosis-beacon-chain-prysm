@@ -1,23 +1,8 @@
 #!/bin/bash
 
-if [[ -n $CHECKPOINT_SYNC_URL ]]; then
-  EXTRA_OPTS="--checkpoint-sync-url=${CHECKPOINT_SYNC_URL} --genesis-beacon-api-url=${CHECKPOINT_SYNC_URL} ${EXTRA_OPTS}"
-else
-  EXTRA_OPTS="--genesis-state=/genesis.ssz ${EXTRA_OPTS}"
+if [[ -n $WEB3_BACKUP ]] && [[ $EXTRA_OPTS != *"--fallback-web3provider"* ]]; then
+  EXTRA_OPTS="--fallback-web3provider=${WEB3_BACKUP} ${EXTRA_OPTS}"
 fi
-
-case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS in
-"nethermind-xdai.dnp.dappnode.eth")
-  HTTP_ENGINE="http://nethermind-xdai.dappnode:8551"
-  ;;
-"erigon-gnosis.dnp.dappnode.eth")
-  HTTP_ENGINE="http://erigon-gnosis.dappnode:8551"
-  ;;
-*)
-  echo "Unknown value for _DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS: $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS"
-  HTTP_ENGINE=$_DAPPNODE_GLOBAL_EXECUTION_CLIENT_GNOSIS
-  ;;
-esac
 
 exec -c beacon-chain \
   --datadir=/data \
@@ -35,6 +20,4 @@ exec -c beacon-chain \
   --bootstrap-node /root/sbc/config/bootnodes.yaml \
   --config-file /root/sbc/config/config.yml \
   --chain-config-file /root/sbc/config/config.yml \
-  --execution-endpoint=$HTTP_ENGINE \
-  --jwt-secret=/jwtsecret \
   $EXTRA_OPTS
