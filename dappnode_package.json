@@ -32,7 +32,7 @@
     "minimumDappnodeVersion": "0.2.56"
   },
   "links": {
-    "ui": "http://ui.web3signer-gnosis.dappnode?signer_url=http://web3signer.web3signer-gnosis.dappnode:9000",
+    "ui": "http://brain.web3signer-gnosis.dappnode",
     "readme": "https://github.com/dappnode/DAppNodePackage-gnosis-beacon-chain-prysm",
     "docs": "https://docs.gnosischain.com/"
   },
@@ -41,6 +41,6 @@
   },
   "warnings": {
     "onMajorUpdate": "IMPORTANT ADVICE!: Prysm is temporary deprecated in Gnosis Chain. Switch your Gnosis consensus client to either Lighthouse or Teku before 30 November",
-    "onRemove": "Before deleting this package, make sure your web3signer is not using it to validate, or you will stop validating. You can check it at Packages > web3signer > Config > Client)"
+    "onRemove": "Make sure your Gnosis StakersUI does not have Prysm Gnosis selected or you will stop validating! (Stakers > Gnosis)"
   }
 }
