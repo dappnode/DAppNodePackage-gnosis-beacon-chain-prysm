@@ -1,7 +1,7 @@
 {
   "name": "gnosis-beacon-chain-prysm.dnp.dappnode.eth",
-  "version": "2.0.0",
-  "upstreamVersion": "v2.1.2",
+  "version": "2.0.1",
+  "upstreamVersion": "v4.2.1-rc.1",
   "upstreamRepo": "prysmaticlabs/prysm",
   "upstreamArg": "UPSTREAM_VERSION",
   "description": "Gnosis Beacon Chain (GBC) brings vital canary network functionality to the burgeoning Ethereum 2.0 ecosystem. Applications can iterate through real-world strategies, stage important applications, or choose to run DApps in a faster, lower-stakes environment while enjoying the benefits of massive scalability. This package includes a Prysm validator client to validate the PoS chain",
